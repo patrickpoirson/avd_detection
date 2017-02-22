@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--opt', default='', type=str, help='path to json file with options')
     parser.add_argument('--idx', default=0, type=int, help='specify model id to resume')
-    parser.add_argument('--gpu', default='', tyep=str, help='specify which gpus to use'
+    parser.add_argument('--gpu', default='', type=str, help='specify which gpus to use')
 
     # experiment options
     parser.add_argument('--diff_max', default=-1, type=int, help='max diff to use')

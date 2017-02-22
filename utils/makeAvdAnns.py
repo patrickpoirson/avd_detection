@@ -13,7 +13,7 @@ from utils import options
 
 
 '''
-This script preprocesses the annotations for scenes dataset
+This script preprocesses the annotations for active vision dataset
 ''' 
 
 
