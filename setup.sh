@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #mkdir data
-#cd data
+cd data
 #mkdir avd
-#cd avd
+cd avd
 
 # need url to get part tars
 #wget part1.tar
