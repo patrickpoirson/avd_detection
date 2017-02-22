@@ -68,8 +68,7 @@ def AddExtraLayers(net, use_batchnorm=True, lr_mult=1):
     return net
 
 def makeBatchSampler(args):
-    if args.get_opts('sampler'):
-        batch_sampler = [
+    batch_sampler = [
         {
                 'sampler': {
                         },
@@ -155,54 +154,6 @@ def makeBatchSampler(args):
                 'max_sample': 1,
         },
         ]
-    else:
-        batch_sampler = [
-        {
-                'sampler': {
-                        },
-                'max_trials': 1,
-                'max_sample': 1,
-        },
-        {
-                'sampler': {
-                        'min_scale': 0.3,
-                        'max_scale': 1.0,
-                        'min_aspect_ratio': 0.5,
-                        'max_aspect_ratio': 2.0,
-                        },
-                'sample_constraint': {
-                        'min_jaccard_overlap': 0.7,
-                        },
-                'max_trials': 50,
-                'max_sample': 1,
-        },
-        {
-                'sampler': {
-                        'min_scale': 0.3,
-                        'max_scale': 1.0,
-                        'min_aspect_ratio': 0.5,
-                        'max_aspect_ratio': 2.0,
-                        },
-                'sample_constraint': {
-                        'min_jaccard_overlap': 0.9,
-                        },
-                'max_trials': 50,
-                'max_sample': 1,
-        },
-        {
-                'sampler': {
-                        'min_scale': 0.3,
-                        'max_scale': 1.0,
-                        'min_aspect_ratio': 0.5,
-                        'max_aspect_ratio': 2.0,
-                        },
-                'sample_constraint': {
-                        'max_jaccard_overlap': 1.0,
-                        },
-                'max_trials': 50,
-                'max_sample': 1,
-        }
-        ]
     return batch_sampler
 
 class SSD:
@@ -234,8 +185,6 @@ class SSD:
 
         train_data = osp.join(data_dir, 'lmdb', '%s_lmdb' % args.get_avd_db_stem('train'))
         test_data = osp.join(data_dir, 'lmdb', '%s_lmdb' % args.get_avd_db_stem('test'))
-
-
 
         # Specify the batch sampler.
         resize_width = args.get_opts('size')

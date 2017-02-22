@@ -7,12 +7,12 @@ We train an SSD detector for instances appearing in our Active Vision Dataset (A
 
 Please cite our dataset if it helps your research:
 
-@inproceedings{active-vision-dataset2017,
- author = {Ammirato, Phil and Poirson, Patrick and Park, Eunbyung and Kosecka, Jana and Berg, Alexander C.},
- title = {A Dataset for Developing and Benchmarking Active Vision},
- booktitle={IEEE International Conference on Robotics and Automation (ICRA)}, 
- year={2017} 
-}
+    @inproceedings{active-vision-dataset2017,
+       author = {Ammirato, Phil and Poirson, Patrick and Park, Eunbyung and Kosecka, Jana and Berg, Alexander C.},
+       title = {A Dataset for Developing and Benchmarking Active Vision},
+       booktitle={IEEE International Conference on Robotics and Automation (ICRA)}, 
+       year={2017} 
+    }
 
 Please also cite SSD:
 
@@ -54,11 +54,11 @@ Please also cite SSD:
 ### Train/Eval
 1. Train your model with default settings.
   ```Shell
-  # for available options
-  python driverAvd.py --h
-  
   # default call
   python driverAvd.py
+
+  # for available options
+  python driverAvd.py --h
 
   # Ex. train 512x512 model on second split using gpu 0 and 1
   python driverAvd.py --split_id 2 --gpu 0,1 --size 512 
