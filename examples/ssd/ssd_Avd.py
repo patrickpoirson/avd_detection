@@ -395,6 +395,7 @@ class SSD:
             'eval_type': "detection",
             'ap_version': "11point",
             'test_initialization': False,
+            'show_per_class_result': True,
             }
         test_solver_param = {
             # Train parameters
@@ -421,6 +422,7 @@ class SSD:
             'eval_type': "detection",
             'ap_version': "11point",
             'test_initialization': False,
+            'show_per_class_result': True,
             }
         # parameters for generating detection output.
         det_out_param = {
