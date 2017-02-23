@@ -46,7 +46,7 @@ class Options:
 
 
 	def get_avd_db_stem(self, split):
-		out = 'split%d_%s' % (self.get_opts('split_id'), split)
+		out = 'split%d_diff%d_%s' % (self.get_opts('split_id'), self.get_opts('diff_max'), split)
 		return out
 
 	def add_kv(self, key, val):

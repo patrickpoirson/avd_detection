@@ -26,16 +26,18 @@ def main(args):
     anns = makeAvdAnns.MakeAnns(opt)
     anns.run_main()
         
-    mapfile = osp.join(DATA_DIR, 'labelmap%d.prototxt' % opt.get_opts('split_id'))
+    split_id = opt.get_opts('split_id')
+    diff_max = opt.get_opts('diff_max')
+    
+    mapfile = osp.join(DATA_DIR, 'labelmap%d_%d.prototxt' % (split_id, diff_max))
     anno_type='detection'
     label_type='json'
-    split_id = opt.get_opts('split_id')
 
-    if not osp.exists(osp.join(DATA_DIR, 'labelmap%d.prototxt' % split_id)):
+    if not osp.exists(mapfile):
         cmd = './build/tools/create_label_map --delimiter=" "\
                 --include_background=true %s %s' \
-                % (osp.join(DATA_DIR, 'map%d.txt' % split_id),\
-                osp.join(DATA_DIR, 'labelmap%d.prototxt' % split_id))
+                % (osp.join(DATA_DIR, 'map%d_%d.txt' % (split_id, diff_max)),\
+                mapfile)
         print cmd
         subprocess.call(cmd, shell=True)
 
@@ -72,7 +74,7 @@ def main(args):
     opt.add_kv('mod_id', mod_id)
 
     # hack
-    f = open(osp.join(DATA_DIR, 'map%d.txt' % opt.get_opts('split_id') ))
+    f = open(osp.join(DATA_DIR, 'map%d_%d.txt' % (split_id, diff_max) ))
     lines = [line for line in f]
     f.close()
     opt.add_kv('num_classes', len(lines) + 1)

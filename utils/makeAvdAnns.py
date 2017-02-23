@@ -43,7 +43,7 @@ class MakeAnns:
         cls_present = getAllClasses(anns, idx2lbl)
         anns = updateLabels(anns, idx2lbl, cls_present)
         
-        lblmap_name = osp.join(base_path, 'map%d.txt' % split_id)
+        lblmap_name = osp.join(base_path, 'map%d_%d.txt' % (split_id, diff_max))
         if not osp.exists(lblmap_name):
             makeLabelMap(cls_present, lblmap_name)
 
