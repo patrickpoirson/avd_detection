@@ -63,4 +63,7 @@ Please also cite SSD:
   # Ex. train 512x512 model on second split using gpu 0 and 1
   python driverAvd.py --split_id 2 --gpu 0,1 --size 512 
 
+  # Ex. evaluating trained model with id 4444
+  python testAvd.py --model 4444 --iter 20000 --gpu 0,1
+
   ```

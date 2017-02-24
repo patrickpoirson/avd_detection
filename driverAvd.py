@@ -17,8 +17,7 @@ def main(args):
     opt_dir = args['opt']
 
     if args['idx'] != 0 and opt_dir == '':
-        # TODO remove 
-        opt_dir = osp.join('/home/poirson/rohit/options/', str(args['idx']) + '.json')
+        opt_dir = osp.join('./options/', str(args['idx']) + '.json')
 
     opt = options.Options(opt_dir)
     set_opts(args, opt)
@@ -80,7 +79,7 @@ def main(args):
     opt.add_kv('num_classes', len(lines) + 1)
 
     # TODO
-    opt_out_path = osp.join('/home/poirson/options', '%d.json' % mod_id)
+    opt_out_path = osp.join('./options', '%d.json' % mod_id)
     opt.write_opt(opt_out_path)
 
     ssd = ssd_Avd.SSD()
